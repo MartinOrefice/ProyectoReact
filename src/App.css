@@ -1,3 +1,16 @@
 .App {
   text-align: center;
 }
+
+.MuiBox-root {
+  display: contents
+}
+.Paragraph{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Paragraph p{
+  font-size: 50px ;
+  font-weight: bold;
+}
