@@ -7,7 +7,6 @@ import './App.css';
 import ItemCount from './components/ItemCount';
 import ItemListContainer from './components/ItemListContainer';
 import NavBar from './components/NavBar';
-import Promesas from './tests/Promesas';
 import theme from './MuiTheme';
 
 
@@ -22,9 +21,8 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
         <NavBar/>
-        <ItemListContainer greeting='¡Bienvenidos a mi tienda online!'/>
+        <ItemListContainer />
         <ItemCount valorInicial={1} stock={5} onAdd={onAdd}/>
-        <Promesas/>
     </ThemeProvider>
   );
 }

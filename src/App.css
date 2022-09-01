@@ -1,7 +1,10 @@
 .App {
   text-align: center;
 }
-
+.productsContainer{
+  display: flex;
+  
+}
 .MuiBox-root {
   display: contents
 }
@@ -10,12 +13,13 @@
   justify-content: center;
   align-items: center;
 }
-.Paragraph p{
-  font-size: 50px ;
-  font-weight: bold;
-}
+
 
 html{
   background-color: rgb(177, 177, 177);
   font-weight: bold;
+}
+
+.css-1ri6ub7-MuiPaper-root-MuiCard-root{
+  margin-right: 20px;
 }
