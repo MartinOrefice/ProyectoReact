@@ -3,6 +3,7 @@
 }
 .productsContainer{
   display: flex;
+  justify-content: center;
   
 }
 .MuiBox-root {
@@ -20,6 +21,4 @@ html{
   font-weight: bold;
 }
 
-.css-1ri6ub7-MuiPaper-root-MuiCard-root{
-  margin-right: 20px;
-}
+

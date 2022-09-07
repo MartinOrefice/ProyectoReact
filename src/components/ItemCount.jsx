@@ -1,5 +1,4 @@
 import React, {useState} from 'react'
-import Item from './Item'
 
 const ItemCount = ({valorInicial, stock, onAdd}) => {
 
@@ -22,7 +21,7 @@ const ItemCount = ({valorInicial, stock, onAdd}) => {
     //} 
 
   return (
-    <div>
+    <div className='counter'>
         <button style={{marginLeft: 10, fontSize: 20}} onClick={sumar}>+</button>
         <span style={{marginLeft: 10, fontSize: 20}}> {counter} </span>
         <button style={{marginLeft: 10, fontSize: 20}} onClick={restar}>-</button>

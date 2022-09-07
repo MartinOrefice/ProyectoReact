@@ -4,26 +4,39 @@ import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import { ThemeProvider } from '@mui/material';
 import './App.css';
-import ItemCount from './components/ItemCount';
 import ItemListContainer from './components/ItemListContainer';
 import NavBar from './components/NavBar';
 import theme from './MuiTheme';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ItemDetailContainer from './components/ItemDetailContainer';
+
 
 
 
 function App() {
   //Lógica
-  
-  const onAdd=()=>{
-    console.log("Item agregado al carrito");
-  }
+  const saludo = 'Hola chicos!'
 
   return (
-    <ThemeProvider theme={theme}>
+    // <ThemeProvider theme={theme}>
+    //     <NavBar/>
+    //     <ItemListContainer />
+    //     <ItemCount valorInicial={1} stock={5} onAdd={onAdd}/>
+    // </ThemeProvider>
+    <>
+      <BrowserRouter>
+      {/* Aqui van los componentes que van en todas las rutas */}
+      <ThemeProvider theme={theme}>
         <NavBar/>
-        <ItemListContainer />
-        <ItemCount valorInicial={1} stock={5} onAdd={onAdd}/>
-    </ThemeProvider>
+        <Routes>
+          <Route path='/' element={ <ItemListContainer saludo={saludo} greeting='hello' />}/>
+          <Route path='/categoria/:categoriaId' element={ <ItemListContainer saludo={saludo} greeting='hello' />}/>
+          <Route path='/detalle/:id' element={<ItemDetailContainer/>}/>
+        </Routes>
+        </ThemeProvider>
+      </BrowserRouter>
+    </>
+
   );
 }
 
