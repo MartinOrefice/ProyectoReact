@@ -7,12 +7,12 @@ import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
-import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import LocalMallIcon from '@mui/icons-material/LocalMall';
 import CartWidget from './CartWidget';
+import { Link } from 'react-router-dom';
 
-const pages = ['Products', 'Pricing', 'Blog'];
+const pages = [{enlace:'/categoria/nuevos', nombre:'Nuevos'}, {enlace:'/categoria/promociones', nombre:'Promociones'}, {enlace:'/categoria/usados', nombre:'Usados'}];
 
 
 const NavBar = () => {
@@ -30,16 +30,20 @@ const NavBar = () => {
 
   
 
+
+  
+
   return (
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <LocalMallIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+          <Link to='/' className='links' style={{color:'white', textDecoration:'none'}}>
           <Typography
             variant="h6"
             noWrap
-            component="a"
-            href="/"
+            
+            
             sx={{
               mr: 50,
               display: { xs: 'none', md: 'flex' },
@@ -52,6 +56,7 @@ const NavBar = () => {
           >
             E-Commerce
           </Typography>
+          </Link>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
@@ -83,8 +88,8 @@ const NavBar = () => {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                <MenuItem key={page.nombre} onClick={handleCloseNavMenu}>
+                  <Link className='links' style={{color:'black', textDecoration:'none'}} to={page.enlace}>{page.nombre}</Link>
                 </MenuItem>
               ))}
             </Menu>
@@ -93,8 +98,7 @@ const NavBar = () => {
           <Typography
             variant="h5"
             noWrap
-            component="a"
-            href="/"
+            
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },
@@ -109,17 +113,14 @@ const NavBar = () => {
             E-Commerce
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                {page}
-              </Button>
-            ))}
+          {pages.map((page) => (
+                <MenuItem key={page.nombre} onClick={handleCloseNavMenu}>
+                 <Link style={{color:'white', textDecoration:'none'}} to={page.enlace}>{page.nombre}</Link>
+                </MenuItem>
+              ))}
           </Box>
           <Box sx={{ flexGrow: 0 }}>
+
             <CartWidget counter={10}/>
           </Box>
         </Toolbar>

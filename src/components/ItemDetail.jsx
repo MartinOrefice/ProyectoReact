@@ -11,9 +11,9 @@ const ItemDetail = ({productDetail}) => {
   return (
     <div style={{display:'flex', justifyContent:'center', flexDirection:'column', alignItems:'center', padding:'3rem'}}>
         <h2>{nombre}</h2>
-        <img src={img} alt={nombre} style={{width:'25rem'}}/>
+        <img src={img} alt={nombre} style={{width:'20rem'}}/>
         <p>{descripcion}</p>
-        <h2>${precio}</h2>
+        <p>${precio}</p>
         <ItemCount stock={stock} valorInicial={1} onAdd={onAdd}/>
     </div>
   )
