@@ -10,6 +10,7 @@ import theme from './MuiTheme';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ItemDetailContainer from './components/ItemDetailContainer';
 import Cart from './components/Cart';
+import {CartProvider} from './context/CartContext'
 
 
 
@@ -19,12 +20,9 @@ function App() {
   const saludo = 'Hola chicos!'
 
   return (
-    // <ThemeProvider theme={theme}>
-    //     <NavBar/>
-    //     <ItemListContainer />
-    //     <ItemCount valorInicial={1} stock={5} onAdd={onAdd}/>
-    // </ThemeProvider>
-    <>
+   
+    
+    <CartProvider>
       <BrowserRouter>
       {/* Aqui van los componentes que van en todas las rutas */}
       <ThemeProvider theme={theme}>
@@ -37,7 +35,8 @@ function App() {
         </Routes>
         </ThemeProvider>
       </BrowserRouter>
-    </>
+    </CartProvider>
+    
 
   );
 }
