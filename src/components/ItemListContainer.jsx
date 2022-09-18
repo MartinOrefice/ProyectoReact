@@ -2,7 +2,8 @@ import React from 'react'
 import ItemList from './ItemList'
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import {getProducts} from '../mocks/mockData'
+import {query, where, getDocs, collection} from 'firebase/firestore'
+import { db } from '../index'
 
 const ItemListContainer = ({saludo, greeting}) => {
 
@@ -12,29 +13,43 @@ const ItemListContainer = ({saludo, greeting}) => {
 
   const{categoriaId}= useParams()
   
-  
+  useEffect(()=>{
+    const productos = categoriaId ?query(collection(db, "productos"), where("categoria", "==", categoriaId)) :collection(db, "productos")
+    getDocs(productos)
+    .then((result)=>{
+      const lista = result.docs.map((productos)=>{
+        return{
+          id: productos.id,
+          ...productos.data()
+        }
+      })
+      setListaProductos(lista)
+    })
+    .catch((error)=>console.log(error))
+    .finally(()=> setLoading(false))
+  },[categoriaId])
  
 
 
-  useEffect(()=>{
+  // useEffect(()=>{
 
-      setLoading(true)
+  //     setLoading(true)
 
-      getProducts
+  //     getProducts
 
-      .then((res)=>{
-        if(categoriaId){
-          setListaProductos(res.filter((product)=> product.categoria === categoriaId))
-        }else{
-          setListaProductos(res)
-        }
-      })
+  //     .then((res)=>{
+  //       if(categoriaId){
+  //         setListaProductos(res.filter((product)=> product.categoria === categoriaId))
+  //       }else{
+  //         setListaProductos(res)
+  //       }
+  //     })
 
-      .catch((error)=> console.log(error))
+  //     .catch((error)=> console.log(error))
 
-      .finally(()=> setLoading(false))
+  //     .finally(()=> setLoading(false))
 
-  },[categoriaId])
+  // },[categoriaId])
   
 
       
