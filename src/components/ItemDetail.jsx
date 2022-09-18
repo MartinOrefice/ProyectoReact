@@ -6,7 +6,7 @@ import { useCart } from '../context/CartContext'
 const ItemDetail = ({productDetail}) => {
     const {nombre, descripcion, precio, stock, img, id}= productDetail
 
-    const [counter, setCounter] = useState(0)
+    const [counter, setCounter] = useState(1)
 
     const [compra, setCompra] = useState(false)
 
@@ -36,7 +36,7 @@ const ItemDetail = ({productDetail}) => {
         <p>Disponibles: {stock}</p>
         <p>${precio}</p>
         { compra ? <button onClick={()=>navegar('/cart')}>Ir al carrito</button>:
-        <ItemCount stock={stock} counter={counter} setCounter={setCounter} onAdd={onAdd}/>}
+        <ItemCount stock={stock}  initial={1} counter={counter} setCounter={setCounter} onAdd={onAdd}/>}
     </div>
   )
 }

@@ -121,7 +121,12 @@ const NavBar = () => {
           </Box>
           <Box sx={{ flexGrow: 0 }}>
 
-            <CartWidget counter={10}/>
+            <Link to='/cart' style={{color:'white', textDecoration:'none'}}>
+
+            <CartWidget/>
+
+            </Link>
+
           </Box>
         </Toolbar>
       </Container>

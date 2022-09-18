@@ -24,6 +24,24 @@ export const CartProvider = ({children})=>{
 
     }
 
+    const addItem2 = (item, cantidad) => {
+        const purchase = {...item, quantity:cantidad}
+        const existsInCart = cart.find((prod)=> prod.id === item.id)
+        if(existsInCart){
+                    const carritoActualizado = cart.map((prod)=>{
+                        if(prod.id === item.id){
+                            return {...prod, quantity:prod.quantity + cantidad}
+                        }else{
+                            return prod
+                        }
+                    })
+                    setCart(carritoActualizado )
+                }else{
+                    setCart([...cart, purchase])
+                }
+       
+    }
+
     const clear = ()=>{
         setCart([])
     }
@@ -36,8 +54,17 @@ export const CartProvider = ({children})=>{
         return cart.some((prod)=> prod.id === id)
     }
 
+    const cartQuantity = ()=> {
+        return cart.reduce((acc, prod)=> acc += prod.quantity,0)
+    }
+
+    const cartTotal = ()=> {
+        return cart.reduce((acc, prod) => acc += prod.precio * prod.quantity,0)
+    }
+
+
     return(
-        <CartContext.Provider value={{cart, clear, removeItem, isInCart, addItem}}>
+        <CartContext.Provider value={{cart, clear, removeItem, isInCart, addItem, addItem2, cartQuantity, cartTotal}}>
             {children}
         </CartContext.Provider>
     )

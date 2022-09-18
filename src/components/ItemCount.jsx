@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ItemCount = ({stock, onAdd, counter, setCounter}) => {
+const ItemCount = ({stock, initial, onAdd, counter, setCounter}) => {
 
     
 
@@ -11,15 +11,12 @@ const ItemCount = ({stock, onAdd, counter, setCounter}) => {
     }
 
     const restar= ()=>{
-      if(counter > 1){ 
+      if(counter > initial){ 
       setCounter(counter-1)
       }
     }
 
-    //const addToCart=()=>{
-    //  console.log(counter);
-    //} 
-
+   
   return (
     <div className='counter'>
         <button style={{marginLeft: 10, fontSize: 20}} onClick={sumar}>+</button>
