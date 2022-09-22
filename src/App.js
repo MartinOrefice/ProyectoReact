@@ -17,7 +17,7 @@ import {CartProvider} from './context/CartContext'
 
 function App() {
   //Lógica
-  const saludo = 'Hola chicos!'
+  
 
   return (
    
@@ -28,8 +28,8 @@ function App() {
       <ThemeProvider theme={theme}>
         <NavBar/>
         <Routes>
-          <Route path='/' element={ <ItemListContainer saludo={saludo} greeting='hello' />}/>
-          <Route path='/categoria/:categoriaId' element={ <ItemListContainer saludo={saludo} greeting='hello' />}/>
+          <Route path='/' element={ <ItemListContainer/>}/>
+          <Route path='/categoria/:categoriaId' element={ <ItemListContainer/>}/>
           <Route path='/detalle/:id' element={<ItemDetailContainer/>}/>
           <Route path='/cart' element={<Cart/>}/>
         </Routes>

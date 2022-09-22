@@ -31,25 +31,6 @@ const ItemListContainer = ({saludo, greeting}) => {
  
 
 
-  // useEffect(()=>{
-
-  //     setLoading(true)
-
-  //     getProducts
-
-  //     .then((res)=>{
-  //       if(categoriaId){
-  //         setListaProductos(res.filter((product)=> product.categoria === categoriaId))
-  //       }else{
-  //         setListaProductos(res)
-  //       }
-  //     })
-
-  //     .catch((error)=> console.log(error))
-
-  //     .finally(()=> setLoading(false))
-
-  // },[categoriaId])
   
 
       
