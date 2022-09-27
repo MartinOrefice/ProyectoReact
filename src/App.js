@@ -11,20 +11,17 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ItemDetailContainer from './components/ItemDetailContainer';
 import Cart from './components/Cart';
 import {CartProvider} from './context/CartContext'
-
+import Checkout from './components/Checkout';
 
 
 
 function App() {
-  //Lógica
   
-
   return (
    
     
     <CartProvider>
       <BrowserRouter>
-      {/* Aqui van los componentes que van en todas las rutas */}
       <ThemeProvider theme={theme}>
         <NavBar/>
         <Routes>
@@ -32,6 +29,7 @@ function App() {
           <Route path='/categoria/:categoriaId' element={ <ItemListContainer/>}/>
           <Route path='/detalle/:id' element={<ItemDetailContainer/>}/>
           <Route path='/cart' element={<Cart/>}/>
+          <Route path='/checkout' element={<Checkout/>}/>
         </Routes>
         </ThemeProvider>
       </BrowserRouter>
