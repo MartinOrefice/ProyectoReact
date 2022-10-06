@@ -2,6 +2,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useCart } from '../context/CartContext'
 import CartItem from './CartItem'
+import { Button } from '@mui/material'
 
 const Cart = () => {
   
@@ -15,14 +16,14 @@ const Cart = () => {
         ? <div>
             <h2>Tu carrito esta vacio!</h2>
             <h4>Volve cuando tengas tus productos seleccionados</h4>
-            <button onClick={()=> navegar('/')}>Ir a comprar</button>
+            <Button variant="contained" onClick={()=> navegar('/')}>Ir a comprar</Button>
           </div> 
         : <div> 
             <h2>Tu carrito</h2>
             {cart.map((compra)=> <CartItem key={compra.id} compra={compra}/>)}
             <span>Total a pagar: ${cartTotal()}</span>
-            <button onClick={clear}>Vaciar carrito</button>
-            <button onClick={()=>navegar('/checkout')}>Terminar la compra</button>
+            <Button variant="contained" className='cartButton' onClick={clear}>Vaciar carrito</Button>
+            <Button variant="contained" color="success" onClick={()=>navegar('/checkout')}>Terminar la compra</Button>
           </div>
       }
     </div>

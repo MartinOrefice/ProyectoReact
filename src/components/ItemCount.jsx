@@ -1,4 +1,5 @@
 import React from 'react'
+import { Button } from '@mui/material'
 
 const ItemCount = ({stock, initial, onAdd, counter, setCounter}) => {
 
@@ -19,10 +20,10 @@ const ItemCount = ({stock, initial, onAdd, counter, setCounter}) => {
    
   return (
     <div className='counter'>
-        <button style={{marginLeft: 10, fontSize: 20}} onClick={sumar}>+</button>
+        <Button variant="outlined" style={{marginLeft: 10, fontSize: 20}} onClick={sumar}>+</Button>
         <span style={{marginLeft: 10, fontSize: 20}}> {counter} </span>
-        <button style={{marginLeft: 10, fontSize: 20}} onClick={restar}>-</button>
-        <button style={{marginLeft: 10, fontSize: 20}} onClick={onAdd}>Agregar al carrito</button>
+        <Button variant="outlined" style={{marginLeft: 10, fontSize: 20}} onClick={restar}>-</Button>
+        <Button variant="contained" color="success" style={{marginLeft: 10, fontSize: 15}} onClick={onAdd}>Agregar al carrito</Button>
     </div>
   )
 }

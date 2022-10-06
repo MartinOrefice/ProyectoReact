@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Button } from '@mui/material';
 
 
 export default function Item({producto}) {
@@ -14,7 +15,7 @@ export default function Item({producto}) {
         <p className="card-text">{producto.descripcion}</p>
         <p className="card-text">${producto.precio}</p>
     </div>
-        <button className='btn btn-primary' onClick={()=>navegar(`/detalle/${producto.id}`)}>Detalle</button>
+        <Button variant="contained" className='btn btn-primary' onClick={()=>navegar(`/detalle/${producto.id}`)}>Detalle</Button>
       </div>
     );
   }

@@ -2,6 +2,7 @@ import React ,{useState}from 'react'
 import ItemCount from './ItemCount'
 import { useNavigate } from 'react-router-dom'
 import { useCart } from '../context/CartContext'
+import { Button } from '@mui/material'
 
 const ItemDetail = ({productDetail}) => {
     const {nombre, descripcion, precio, stock, img, id}= productDetail
@@ -35,7 +36,7 @@ const ItemDetail = ({productDetail}) => {
         <p>{descripcion}</p>
         <p>Disponibles: {stock}</p>
         <p>${precio}</p>
-        { compra ? <button onClick={()=>navegar('/cart')}>Ir al carrito</button>:
+        { compra ? <Button variant="contained" onClick={()=>navegar('/cart')}>Ir al carrito</Button>:
         <ItemCount stock={stock}  initial={1} counter={counter} setCounter={setCounter} onAdd={onAdd}/>}
     </div>
   )
