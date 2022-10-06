@@ -4,6 +4,7 @@ import {db} from '../index'
 import { useCart } from '../context/CartContext'
 import { useNavigate } from 'react-router-dom'
 import { addDoc, collection, serverTimestamp } from 'firebase/firestore'
+import { Button } from '@mui/material'
 
 const Checkout = () => {
 
@@ -56,7 +57,7 @@ const Checkout = () => {
   return (
     <div>
        {!orderId 
-       ?<div>
+       ?<div style={{display:'flex', justifyContent:'center' ,flexDirection:'column', alignItems:'center'}}>
        <h2>Checkout</h2>
         <h4>complete todos los campos</h4>
         <form style={{display:'flex', justifyContent:'center', alignItems:'center', flexDirection:'column'}} onSubmit={finalizarCompra}>
@@ -77,10 +78,10 @@ const Checkout = () => {
         </form>
        </div>
        :
-       <div>
+       <div style={{display:'flex', justifyContent:'center' ,flexDirection:'column', alignItems:'center'}}>
         <h2>Muchas gracias por su compra!</h2>
         <h4>Su orden es: {orderId}</h4>
-        <button onClick={()=> navigate('/')}>Volver</button>
+        <Button variant="contained" onClick={()=> navigate('/')}>Volver</Button>
        </div>}
     </div>
   )
