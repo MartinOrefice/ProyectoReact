@@ -1,4 +1,4 @@
-# E-commerce. Creado y diseñado por [Martin Orefice](www.linkedin.com/in/matiasbianchi)
+# E-commerce. Creado y diseñado por [Martin Orefice](https://www.linkedin.com/in/martin-orefice-developer/)
 
 # [![CSS](https://img.shields.io/badge/Link%20al%20sitio-blueviolet)](https://matibian.github.io/mat-Ecommerce/)
 
